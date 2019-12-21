@@ -52,9 +52,9 @@ public class WalletTests {
         RequestObject obj = BitcoinUrlHandler.getRequestFromString("n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");
         assertEquals("n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi", obj.address);
 
-//        r = [BRPaymentRequest requestWithString:@"1BTCorgHwCg6u2YSAWKgS17qUad6kHmtQ"];
+//        r = [BRPaymentRequest requestWithString:@"1PRCXorgHwCg6u2YSAWKgS17qUad6kHmtQ"];
 //        XCTAssertFalse(r.isValid);
-//        XCTAssertEqualObjects(@"bitcoin:1BTCorgHwCg6u2YSAWKgS17qUad6kHmtQ", r.string,
+//        XCTAssertEqualObjects(@"bitcoin:1PRCXorgHwCg6u2YSAWKgS17qUad6kHmtQ", r.string,
 //        @"[BRPaymentRequest requestWithString:]");
 
         obj = BitcoinUrlHandler.getRequestFromString("bitcoin:n2eMqTT929pb1RDNuqEnxdaLau1rxy3efi");

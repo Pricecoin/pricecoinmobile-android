@@ -266,14 +266,14 @@ public class BRSharedPrefs {
     }
 
     //if the user prefers all in bitcoin units, not other currencies
-    public static boolean getPreferredBTC(Context activity) {
+    public static boolean getPreferredPRCX(Context activity) {
         SharedPreferences prefs = activity.getSharedPreferences(BRConstants.PREFS_NAME, Context.MODE_PRIVATE);
         return prefs.getBoolean("priceSetToBitcoin", false);
     }
 
     //if the user prefers all in bitcoin units, not other currencies
-    public static void putPreferredBTC(Context activity, boolean b) {
-        Log.e(TAG, "putPreferredBTC: " + b);
+    public static void putPreferredPRCX(Context activity, boolean b) {
+        Log.e(TAG, "putPreferredPRCX: " + b);
         SharedPreferences prefs = activity.getSharedPreferences(BRConstants.PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("priceSetToBitcoin", b);

@@ -259,9 +259,9 @@ public class BreadActivity extends BRActivity implements BRWalletManager.OnBalan
 
     private void swap() {
         if (!BRAnimator.isClickAllowed()) return;
-        boolean b = !BRSharedPrefs.getPreferredBTC(this);
+        boolean b = !BRSharedPrefs.getPreferredPRCX(this);
         setPriceTags(b, true);
-        BRSharedPrefs.putPreferredBTC(this, b);
+        BRSharedPrefs.putPreferredPRCX(this, b);
     }
 
     private void setPriceTags(boolean btcPreferred, boolean animate) {
@@ -407,7 +407,7 @@ public class BreadActivity extends BRActivity implements BRWalletManager.OnBalan
                     observer.removeOnGlobalLayoutListener(this);
                 if (uiIsDone) return;
                 uiIsDone = true;
-                setPriceTags(BRSharedPrefs.getPreferredBTC(BreadActivity.this), false);
+                setPriceTags(BRSharedPrefs.getPreferredPRCX(BreadActivity.this), false);
             }
         });
 
@@ -466,9 +466,9 @@ public class BreadActivity extends BRActivity implements BRWalletManager.OnBalan
                 //current amount in satoshis
                 final BigDecimal amount = new BigDecimal(BRSharedPrefs.getCatchedBalance(BreadActivity.this));
 
-                //amount in BTC units
+                //amount in PRCX units
                 BigDecimal btcAmount = BRExchange.getBitcoinForSatoshis(BreadActivity.this, amount);
-                final String formattedBTCAmount = BRCurrency.getFormattedCurrencyString(BreadActivity.this, "BTC", btcAmount);
+                final String formattedPRCXAmount = BRCurrency.getFormattedCurrencyString(BreadActivity.this, "PRCX", btcAmount);
 
                 //amount in currency units
                 BigDecimal curAmount = BRExchange.getAmountFromSatoshis(BreadActivity.this, iso, amount);
@@ -476,7 +476,7 @@ public class BreadActivity extends BRActivity implements BRWalletManager.OnBalan
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        primaryPrice.setText(formattedBTCAmount);
+                        primaryPrice.setText(formattedPRCXAmount);
                         secondaryPrice.setText(String.format("%s", formattedCurAmount));
 
                     }

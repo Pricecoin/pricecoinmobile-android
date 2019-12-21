@@ -237,9 +237,9 @@ public class BRSender {
 //        final BRWalletManager m = BRWalletManager.getInstance();
 //        final long amountToReduce = request.amount - maxOutputAmount;
 //        String iso = BRSharedPrefs.getIso(app);
-//        final String reduceBits = BRCurrency.getFormattedCurrencyString(app, "BTC", BRExchange.getAmountFromSatoshis(app, "BTC", new BigDecimal(amountToReduce)));
+//        final String reduceBits = BRCurrency.getFormattedCurrencyString(app, "PRCX", BRExchange.getAmountFromSatoshis(app, "PRCX", new BigDecimal(amountToReduce)));
 //        final String reduceCurrency = BRCurrency.getFormattedCurrencyString(app, iso, BRExchange.getAmountFromSatoshis(app, iso, new BigDecimal(amountToReduce)));
-//        final String reduceBitsMinus = BRCurrency.getFormattedCurrencyString(app, "BTC", BRExchange.getAmountFromSatoshis(app, "BTC", new BigDecimal(amountToReduce).negate()));
+//        final String reduceBitsMinus = BRCurrency.getFormattedCurrencyString(app, "PRCX", BRExchange.getAmountFromSatoshis(app, "PRCX", new BigDecimal(amountToReduce).negate()));
 //        final String reduceCurrencyMinus = BRCurrency.getFormattedCurrencyString(app, iso, BRExchange.getAmountFromSatoshis(app, iso, new BigDecimal(amountToReduce).negate()));
 //
 //        ((Activity) app).runOnUiThread(new Runnable() {
@@ -386,9 +386,9 @@ public class BRSender {
             feeForTx += (BRWalletManager.getInstance().getBalance(ctx) - request.amount) % 100;
         }
         final long total = request.amount + feeForTx;
-        String formattedAmountBTC = BRCurrency.getFormattedCurrencyString(ctx, "BTC", BRExchange.getBitcoinForSatoshis(ctx, new BigDecimal(request.amount)));
-        String formattedFeeBTC = BRCurrency.getFormattedCurrencyString(ctx, "BTC", BRExchange.getBitcoinForSatoshis(ctx, new BigDecimal(feeForTx)));
-        String formattedTotalBTC = BRCurrency.getFormattedCurrencyString(ctx, "BTC", BRExchange.getBitcoinForSatoshis(ctx, new BigDecimal(total)));
+        String formattedAmountPRCX = BRCurrency.getFormattedCurrencyString(ctx, "PRCX", BRExchange.getBitcoinForSatoshis(ctx, new BigDecimal(request.amount)));
+        String formattedFeePRCX = BRCurrency.getFormattedCurrencyString(ctx, "PRCX", BRExchange.getBitcoinForSatoshis(ctx, new BigDecimal(feeForTx)));
+        String formattedTotalPRCX = BRCurrency.getFormattedCurrencyString(ctx, "PRCX", BRExchange.getBitcoinForSatoshis(ctx, new BigDecimal(total)));
 
         String formattedAmount = BRCurrency.getFormattedCurrencyString(ctx, iso, BRExchange.getAmountFromSatoshis(ctx, iso, new BigDecimal(request.amount)));
         String formattedFee = BRCurrency.getFormattedCurrencyString(ctx, iso, BRExchange.getAmountFromSatoshis(ctx, iso, new BigDecimal(feeForTx)));
@@ -396,9 +396,9 @@ public class BRSender {
 
         //formatted text
         return receiver + "\n\n"
-                + ctx.getString(R.string.Confirmation_amountLabel) + " " + formattedAmountBTC + " (" + formattedAmount + ")"
-                + "\n"  + ctx.getString(R.string.Confirmation_feeLabel) + " " + formattedFeeBTC + " (" + formattedFee + ")"
-                + "\n"  + ctx.getString(R.string.Confirmation_totalLabel) + " "  + formattedTotalBTC + " (" + formattedTotal + ")"
+                + ctx.getString(R.string.Confirmation_amountLabel) + " " + formattedAmountPRCX + " (" + formattedAmount + ")"
+                + "\n"  + ctx.getString(R.string.Confirmation_feeLabel) + " " + formattedFeePRCX + " (" + formattedFee + ")"
+                + "\n"  + ctx.getString(R.string.Confirmation_totalLabel) + " "  + formattedTotalPRCX + " (" + formattedTotal + ")"
                 + (request.comment == null ? "" : "\n\n" + request.comment);
     }
 
